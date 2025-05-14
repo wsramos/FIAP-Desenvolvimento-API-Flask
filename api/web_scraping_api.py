@@ -1,5 +1,5 @@
 from flask import Flask, jsonify, request  # Importação dos componentes principais do Flask
-from infrastructure.basicAuth import BasicAuthentication
+from infrastructure.security.auth.basicAuth import BasicAuthentication
 from flasgger import Swagger
 from bs4 import BeautifulSoup
 import requests
