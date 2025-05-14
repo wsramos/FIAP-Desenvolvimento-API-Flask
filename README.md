@@ -18,6 +18,53 @@ Este projeto fornece uma introdução ao desenvolvimento de APIs REST utilizando
 
 ---
 
+## 📘 Documentação da API com Flasgger
+
+A documentação da API é gerada automaticamente com o **Flasgger**, uma extensão do Flask que integra o Swagger UI. Isso permite que você visualize, teste e interaja com os endpoints diretamente pelo navegador, sem a necessidade de ferramentas externas como Postman.
+
+### 📍 Acesso
+
+Após iniciar a aplicação, acesse a documentação interativa em:
+
+```
+http://localhost:5000/apidocs/
+```
+
+### ⚙️ Configuração
+
+A configuração do Swagger está definida no arquivo `config_app_local.py`, incluindo título, versão e esquema de autenticação JWT:
+
+```python
+SWAGGER = {
+  'title': 'Catálogo de Receitas Gourmet',
+  'uiversion': 3,
+  'version': '0.0.1',
+  'openapi': '3.0.2',
+  'components': {
+    'securitySchemes': {
+      'BearerAuth': {
+        'type': 'http',
+        'scheme': 'bearer',
+        'bearerFormat': 'JWT',
+        'description': 'Insira o token JWT no formato **Bearer <seu_token>**'
+      }
+    }
+  },
+  'security': [{'BearerAuth': []}]
+}
+```
+
+### ✅ Benefícios
+
+- Interface amigável para explorar e testar endpoints.
+- Suporte a autenticação JWT diretamente pela interface.
+- Geração automática a partir de docstrings nos métodos da API.
+- Facilita a colaboração e entendimento da API por outros desenvolvedores.
+
+---
+
+
+
 ## 🔐 Tipos de Autenticação
 
 O projeto implementa dois tipos de autenticação:
